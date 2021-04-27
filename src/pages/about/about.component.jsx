@@ -1,5 +1,7 @@
 import './about.styles.scss';
 
-export const About = () => (
+const About = () => (
   <h1>about page</h1>
 )
+
+export default About;

@@ -1,6 +1,6 @@
-import './results-header.styles.scss';
-
 import { useSearchContext } from '../../contexts/search.context';
+
+import './results-header.styles.scss';
 
 export const ResultsHeader = () => {
   const { searchVal } = useSearchContext();

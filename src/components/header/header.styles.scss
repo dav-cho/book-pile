@@ -1,3 +1,20 @@
+// .logo-container {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   position: absolute;
+//   width: 100%;
+//   padding: 1rem;
+//   margin: 0 auto;
+//   padding: 0;
+//   text-decoration: none;
+//   color: black;
+
+//   .logo {
+//     font-size: 3.5rem;
+//   }
+// }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -18,24 +35,12 @@
       }
 
       .menu-button {
-        margin-left: 1rem;
+        margin-left: 0.5rem;
       }
     }
 
     .search-container {
       margin-left: 2rem;
-    }
-  }
-
-  .logo-container {
-    padding: 1rem;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: black;
-
-    .logo {
-      font-size: 3.5rem;
     }
   }
 
