@@ -1,10 +1,18 @@
 import './result-card.styles.scss';
 
-export const ResultCard = ({result}) => (
+export const ResultCard = ({ result }) => (
   <div className="result-card">
-    <img src={result.imageLinks.thumbnail} alt="book cover" />
-    <h3>{result.title}</h3>
-    <h4>{result.authors}</h4>
-    <p>Page Count: {result.pageCount}</p>
+    <div className="image-container">
+      <img src={result.imageLinks.thumbnail} alt="book cover" />
+    </div>
+
+    <div className="result-details">
+      <h3 className='title'>{result.title}</h3>
+      <h4 className='author'>{result.authors}</h4>
+    </div>
+    <div className="tags-container">
+      <span className='tag'>Pages: {result.pageCount}</span>
+      <span className='tag'>{result.publishedDate}</span>
+    </div>
   </div>
 );

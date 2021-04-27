@@ -22,8 +22,7 @@ export const Header = () => {
       </div>
 
       <NavLink to="/" className="logo-container">
-        {/* <Logo className="logo" /> */}
-        <div className="logo">book.pile</div>
+        <span className="logo">book.pile</span>
       </NavLink>
 
       <ul className="nav-links">

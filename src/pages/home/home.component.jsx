@@ -5,12 +5,17 @@ import { Button } from '@material-ui/core';
 
 import { useSearchContext } from '../../contexts/search.context';
 import { fetchGoogle } from '../../utils/fetch-data';
+import { ResultsHeader } from '../../components/results-header/results-header.component';
 import { ResultsList } from '../../components/results-list/results-list.component';
 
 export const Home = () => {
   const [input, setInput] = useState('');
-  const [searchVal, setSearchVal] = useState('');
-  const { searchResults, setSearchResults } = useSearchContext();
+  const {
+    searchVal,
+    setSearchVal,
+    searchResults,
+    setSearchResults,
+  } = useSearchContext();
 
   useEffect(() => {
     (async () => {
@@ -24,7 +29,7 @@ export const Home = () => {
     e.preventDefault();
 
     setSearchVal(input);
-    // setInput('');
+    setInput('');
   };
 
   return (
@@ -33,7 +38,7 @@ export const Home = () => {
         <Button>hello world</Button>
       </div>
 
-      <h1>home/landing page</h1>
+      <p>home/landing page</p>
 
       <form onSubmit={handleSubmit} className="search">
         <input
@@ -42,6 +47,8 @@ export const Home = () => {
           onChange={e => setInput(e.target.value)}
         />
       </form>
+
+      <ResultsHeader />
 
       {searchResults ? (
         <div className="results-container">
