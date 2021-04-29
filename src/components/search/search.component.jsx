@@ -10,7 +10,9 @@ export const Search = ({ isMainPage, label }) => {
   const { searchVal, setSearchVal, setSearchResults } = useSearchContext();
 
   useEffect(() => {
-    fetchGoogle(searchVal).then(data => setSearchResults(data));
+    if (searchVal) {
+      fetchGoogle(searchVal).then(data => setSearchResults(data));
+    }
   }, [searchVal, setSearchResults]);
 
   const handleSubmit = e => {
@@ -23,12 +25,14 @@ export const Search = ({ isMainPage, label }) => {
   return (
     <form onSubmit={handleSubmit} className="search">
       <input
-        // placeholder="search for a book"
+        placeholder="search for a book"
         value={input}
         onChange={e => setInput(e.target.value)}
         className={isMainPage ? 'main-page-input' : 'nav-input'}
       />
-      <label className={isMainPage ? 'main-page-input-label' : 'nav-input-label'}>
+      <label
+        className={isMainPage ? 'main-page-input-label' : 'nav-input-label'}
+      >
         {label}
       </label>
     </form>

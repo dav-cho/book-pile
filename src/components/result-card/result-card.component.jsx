@@ -1,18 +1,20 @@
-import './result-card.styles.scss';
+import { Card, CardContent } from '@material-ui/core';
 
-export const ResultCard = ({ result }) => (
-  <div className="result-card">
-    <div className="image-container">
+// import { useStyles } from './result-card.styles';
+
+export const ResultCard = ({ result }) => {
+  return (
+    <Card className="result-card">
       <img src={result.imageLinks.thumbnail} alt="book cover" />
-    </div>
 
-    <div className="result-details">
-      <h3 className='title'>{result.title}</h3>
-      <h4 className='author'>{result.authors}</h4>
-    </div>
-    <div className="tags-container">
-      <span className='tag'>Pages: {result.pageCount}</span>
-      <span className='tag'>{result.publishedDate}</span>
-    </div>
-  </div>
-);
+      <CardContent>
+        <h3 className="title">{result.title}</h3>
+        <h4 className="author">{result.authors}</h4>
+      </CardContent>
+      <div className="tags-container">
+        <span className="tag">Pages: {result.pageCount}</span>
+        <span className="tag">{result.publishedDate}</span>
+      </div>
+    </Card>
+  );
+};

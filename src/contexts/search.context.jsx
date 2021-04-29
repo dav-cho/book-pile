@@ -4,8 +4,8 @@ const SearchContext = createContext();
 
 export const useSearchContext = () => useContext(SearchContext);
 
-export const SearchProvider = ({ children }) => {
-  const [searchResults, setSearchResults] = useState([]);
+export const SearchContextProvider = ({ children }) => {
+  const [searchResults, setSearchResults] = useState();
   const [searchVal, setSearchVal] = useState('');
 
   return (

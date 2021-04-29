@@ -1,6 +1,6 @@
-import { useSearchContext } from '../../contexts/search.context';
+import { Grid } from '@material-ui/core';
 
-import { Search } from '../../components/search/search.component';
+import { useSearchContext } from '../../contexts/search.context';
 import { ResultsHeader } from '../../components/results-header/results-header.component';
 import { ResultsList } from '../../components/results-list/results-list.component';
 
@@ -12,14 +12,23 @@ const Results = () => {
   return (
     <>
       <p>results page</p>
-      {searchResults && <ResultsHeader />}
-      {searchResults ? (
-        <div className="results-container">
-          <ResultsList results={searchResults} className="results-container" />
-        </div>
-      ) : (
-        <h3>no results found...</h3>
-      )}
+      <Grid container>
+        <Grid item xs={12}>
+          {searchResults && <ResultsHeader />}
+        </Grid>
+        <Grid item container xs={12}>
+          {searchResults ? (
+            <div className="results-container">
+              <ResultsList
+                results={searchResults}
+                className="results-container"
+              />
+            </div>
+          ) : (
+            <h3>no results found...</h3>
+          )}
+        </Grid>
+      </Grid>
     </>
   );
 };

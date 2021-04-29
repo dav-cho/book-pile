@@ -1,39 +1,57 @@
 import { NavLink } from 'react-router-dom';
 
-import { Menu } from '../menu/menu.component';
-import { Search } from '../search/search.component';
-import { BookPileLogo } from '../logo/logo.component';
-// import { ReactComponent as Logo } from '../../assets/book-pile.svg';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  // Drawer,
+} from '@material-ui/core';
+import {
+  FiberManualRecord,
+  Brightness4,
+  BrightnessHigh,
+  // Brightness3,
+  // Brightness2,
+} from '@material-ui/icons';
 
-import './header.styles.scss';
+import { useStyles } from './header.styles';
+import { UseThemeContext } from '../../contexts/theme.context';
+import { Search } from '../search/search.component';
 
 export const Header = () => {
+  const { theme, toggleTheme } = UseThemeContext();
+  const { appBar, search } = useStyles();
+
   return (
     <>
-      <BookPileLogo />
 
-      <div className="header">
-        <div className="header-left">
-          <div className="menu-button-container">
-            <strong className="bullet">&bull;</strong>
-            <span className="menu-button">
-              <Menu />
-            </span>
-          </div>
+      <AppBar className={appBar}>
+        <Toolbar>
+          {/* <div className="header-left"> */}
+          <Button color="secondary">
+            <FiberManualRecord />
+            <Typography variant="h5">menu</Typography>
+          </Button>
           <span className="search-container">
-            <Search />
+            <Search className={search} />
           </span>
-        </div>
+          {/* </div> */}
 
-        <ul className="nav-links">
-          <NavLink to="/home">
-            <li>home</li>
-          </NavLink>
-          <NavLink to="/about">
-            <li>about</li>
-          </NavLink>
-        </ul>
-      </div>
+          <ul className="nav-links">
+            <NavLink to="/home">
+              <li>home</li>
+            </NavLink>
+            <NavLink to="/about">
+              <li>about</li>
+            </NavLink>
+            <IconButton onClick={toggleTheme} color="secondary">
+              {theme ? <Brightness4 /> : <BrightnessHigh />}
+            </IconButton>
+          </ul>
+        </Toolbar>
+      </AppBar>
     </>
   );
 };
