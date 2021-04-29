@@ -17,9 +17,8 @@ function App() {
           <Header />
           <div className="content">
             <Route exact path="/" component={Home} />
-            <Route path="/home" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/search" component={Results} />
+            <Route path="/search/:searchTerm" component={Results} />
           </div>
         </div>
       </SearchContextProvider>

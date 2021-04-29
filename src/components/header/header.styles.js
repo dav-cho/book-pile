@@ -9,9 +9,11 @@ export const useStyles = makeStyles(() => ({
   navBar: {
     display: 'flex',
     justifyContent: 'space-between',
+    padding: '0 1rem',
   },
 
   navLeft: {
+    flex: 1,
     display: 'flex',
     alignItems: 'center',
   },
@@ -20,20 +22,23 @@ export const useStyles = makeStyles(() => ({
     marginRight: '1.5rem',
   },
 
+  titleLink: {
+    textDecoration: 'none',
+    color: '#212121',
+  },
+
   title: {
-    position: 'absolute',
+    flex: 1,
     textAlign: 'center',
     fontSize: '3rem',
     fontWeight: 400,
     fontFamily: 'Open Sans',
-    left: '50%',
-    top: '50%',
-    transform: 'translate(-50%, -50%)',
   },
 
   navLinksContainer: {
+    flex: 1,
     display: 'flex',
-    flexDirection: 'row',
+    justifyContent: 'flex-end',
     alignItems: 'center',
   },
 

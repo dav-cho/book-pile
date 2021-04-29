@@ -1,13 +1,14 @@
+import { Redirect } from 'react-router-dom';
+
 import Typography from '@material-ui/core/Typography';
 
 import { useSearchContext } from '../../contexts/search.context';
-import Results from '../results/results.component';
 import { Search } from '../../components/search/search.component';
 
 import './home.styles.scss';
 
 const Home = () => {
-  const { searchResults } = useSearchContext();
+  const { searchVal, searchResults } = useSearchContext();
 
   return !searchResults ? (
     <div className="Home">
@@ -15,7 +16,7 @@ const Home = () => {
       <Search isMainPage />
     </div>
   ) : (
-    <Results />
+    <Redirect push to={`/search/${searchVal}`} />
   );
 };
 

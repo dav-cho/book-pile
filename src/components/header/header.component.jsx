@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
+// import { NavLink, useHistory } from 'react-router-dom';
 
 import {
   AppBar,
@@ -13,12 +14,25 @@ import Brightness4Icon from '@material-ui/icons/Brightness4';
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 
 import { useStyles } from './header.styles';
-import { UseThemeContext } from '../../contexts/theme.context';
+import { UseThemeContext } from '../../contexts/theme.context.jsx';
 import { Search } from '../search/search.component';
 
 export const Header = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const classes = useStyles();
+  // const history = useHistory();
+  // console.log('~ history', history);
+
+  const navLinks = [
+    {
+      name: 'home',
+      path: '/',
+    },
+    {
+      name: 'about',
+      path: '/about',
+    },
+  ];
 
   return (
     <AppBar elevation={0} className={classes.appBar}>
@@ -31,17 +45,22 @@ export const Header = () => {
           <Search />
         </div>
 
-        <Typography variant="h1" className={classes.title}>
-          book.pile
-        </Typography>
+        <NavLink to="/" className={classes.titleLink}>
+          <Typography variant="h1" className={classes.title}>
+            book.pile
+          </Typography>
+        </NavLink>
 
         <div className={classes.navLinksContainer}>
-          <NavLink to="/home" className={classes.navLink}>
-            <Typography className={classes.navLinkText}>home</Typography>
-          </NavLink>
-          <NavLink to="/about" className={classes.navLink}>
-            <Typography className={classes.navLinkText}>about</Typography>
-          </NavLink>
+          {navLinks.map(link => {
+            const { name, path } = link;
+
+            return (
+              <NavLink to={path} className={classes.navLink} key={name}>
+                <Typography className={classes.navLinkText}>{name}</Typography>
+              </NavLink>
+            );
+          })}
           <IconButton onClick={toggleTheme} color="secondary">
             {theme ? <Brightness4Icon /> : <BrightnessHighIcon />}
           </IconButton>

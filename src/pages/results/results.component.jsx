@@ -4,8 +4,6 @@ import { useSearchContext } from '../../contexts/search.context';
 import { ResultsHeader } from '../../components/results-header/results-header.component';
 import { ResultsList } from '../../components/results-list/results-list.component';
 
-import './results.styles.scss';
-
 const Results = () => {
   const { searchResults } = useSearchContext();
 

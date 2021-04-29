@@ -48,12 +48,12 @@ export const ThemeContextProvider = ({ children }) => {
       secondary: blueGrey,
 
       text: {
-        primary: '#fafafa',
+        primary: '#fefefe',
       },
 
       background: {
-        paper: '#1f1f1f',
-        default: '#1f1f1f',
+        paper: '#212121',
+        default: '#212121',
       },
     },
 
