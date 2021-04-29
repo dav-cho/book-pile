@@ -1,9 +1,9 @@
-import { useSearchContext } from '../../contexts/search.context';
+import { useParams } from 'react-router-dom';
 
 import './results-header.styles.scss';
 
 export const ResultsHeader = () => {
-  const { searchVal } = useSearchContext();
+  const { searchVal } = useParams();
 
   return (
     <div className="results-header-container">
@@ -11,7 +11,7 @@ export const ResultsHeader = () => {
         <span>results for {searchVal}</span>
       </div>
       <div className="filter-container">
-        <span className='filter-button'>filter+</span>
+        <span className="filter-button">filter+</span>
       </div>
     </div>
   );

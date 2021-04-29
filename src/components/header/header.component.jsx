@@ -1,5 +1,4 @@
-import { NavLink} from 'react-router-dom';
-// import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import {
   AppBar,
@@ -20,8 +19,6 @@ import { Search } from '../search/search.component';
 export const Header = () => {
   const { theme, toggleTheme } = UseThemeContext();
   const classes = useStyles();
-  // const history = useHistory();
-  // console.log('~ history', history);
 
   const navLinks = [
     {

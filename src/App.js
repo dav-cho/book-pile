@@ -18,7 +18,7 @@ function App() {
           <div className="content">
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
-            <Route path="/search/:searchTerm" component={Results} />
+            <Route path="/search/:searchVal" component={Results} />
           </div>
         </div>
       </SearchContextProvider>

@@ -1,24 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import { useSearchContext } from '../../contexts/search.context';
-import { fetchGoogle } from '../../utils/fetch-data.utils';
+// import { useSearchContext } from '../../contexts/search.context';
 
 import './search.styles.scss';
 
 export const Search = ({ isMainPage, label }) => {
   const [input, setInput] = useState('');
-  const { searchVal, setSearchVal, setSearchResults } = useSearchContext();
-
-  useEffect(() => {
-    if (searchVal) {
-      fetchGoogle(searchVal).then(data => setSearchResults(data));
-    }
-  }, [searchVal, setSearchResults]);
+  // const { searchVal, setSearchVal, setSearchResults } = useSearchContext();
+  const searchHistory = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    setSearchVal(input);
+    searchHistory.push(`/search/${input}`);
+    // setSearchVal(input);
     setInput('');
   };
 
