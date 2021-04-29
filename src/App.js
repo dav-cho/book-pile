@@ -1,7 +1,5 @@
 import { Route } from 'react-router-dom';
 
-import Grid from '@material-ui/core/Grid';
-
 import { ThemeContextProvider } from './contexts/theme.context';
 import { SearchContextProvider } from './contexts/search.context';
 import { Header } from './components/header/header.component';
@@ -16,17 +14,13 @@ function App() {
     <ThemeContextProvider>
       <SearchContextProvider>
         <div className="App">
-          <Grid container direction="column">
-            <Grid item xs={12}>
-              <Header />
-            </Grid>
-            <Grid item xs={12}>
-              <Route exact path="/" component={Home} />
-              <Route path="/home" component={Home} />
-              <Route path="/about" component={About} />
-              <Route path="/search" component={Results} />
-            </Grid>
-          </Grid>
+          <Header />
+          <div className="content">
+            <Route exact path="/" component={Home} />
+            <Route path="/home" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/search" component={Results} />
+          </div>
         </div>
       </SearchContextProvider>
     </ThemeContextProvider>

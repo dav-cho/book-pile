@@ -8,13 +8,9 @@ import {
   IconButton,
   // Drawer,
 } from '@material-ui/core';
-import {
-  FiberManualRecord,
-  Brightness4,
-  BrightnessHigh,
-  // Brightness3,
-  // Brightness2,
-} from '@material-ui/icons';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 
 import { useStyles } from './header.styles';
 import { UseThemeContext } from '../../contexts/theme.context';
@@ -22,36 +18,35 @@ import { Search } from '../search/search.component';
 
 export const Header = () => {
   const { theme, toggleTheme } = UseThemeContext();
-  const { appBar, search } = useStyles();
+  const classes = useStyles();
 
   return (
-    <>
-
-      <AppBar className={appBar}>
-        <Toolbar>
-          {/* <div className="header-left"> */}
-          <Button color="secondary">
-            <FiberManualRecord />
+    <AppBar elevation={0} className={classes.appBar}>
+      <Toolbar className={classes.navBar}>
+        <div className={classes.navLeft}>
+          <Button color="secondary" className={classes.menuButton}>
+            <FiberManualRecordIcon />
             <Typography variant="h5">menu</Typography>
           </Button>
-          <span className="search-container">
-            <Search className={search} />
-          </span>
-          {/* </div> */}
+          <Search />
+        </div>
 
-          <ul className="nav-links">
-            <NavLink to="/home">
-              <li>home</li>
-            </NavLink>
-            <NavLink to="/about">
-              <li>about</li>
-            </NavLink>
-            <IconButton onClick={toggleTheme} color="secondary">
-              {theme ? <Brightness4 /> : <BrightnessHigh />}
-            </IconButton>
-          </ul>
-        </Toolbar>
-      </AppBar>
-    </>
+        <Typography variant="h1" className={classes.title}>
+          book.pile
+        </Typography>
+
+        <div className={classes.navLinksContainer}>
+          <NavLink to="/home" className={classes.navLink}>
+            <Typography className={classes.navLinkText}>home</Typography>
+          </NavLink>
+          <NavLink to="/about" className={classes.navLink}>
+            <Typography className={classes.navLinkText}>about</Typography>
+          </NavLink>
+          <IconButton onClick={toggleTheme} color="secondary">
+            {theme ? <Brightness4Icon /> : <BrightnessHighIcon />}
+          </IconButton>
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 };
