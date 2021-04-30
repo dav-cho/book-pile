@@ -8,6 +8,8 @@ import {
   Typography,
   Button,
   IconButton,
+  Link,
+  Hidden,
 } from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
@@ -61,10 +63,10 @@ export const Header = () => {
         <div className={classes.navLeftContainer}>
           <Button
             onClick={toggleDrawer}
-            color="secondary"
+            // color="secondary"
             className={classes.menuButton}
           >
-            <FiberManualRecordIcon />
+            <FiberManualRecordIcon color="secondary" />
             <Typography variant="h5">menu</Typography>
           </Button>
           <div onClick={toggleDrawer}>
@@ -77,20 +79,33 @@ export const Header = () => {
           <Search />
         </div>
 
-        <NavLink to="/" className={classes.titleLink}>
-          <Typography variant="h1" className={classes.title}>
+        <Hidden smDown>
+          <Link
+            component={NavLink}
+            to="/"
+            variant="h2"
+            color="textPrimary"
+            underline="none"
+          >
             book.pile
-          </Typography>
-        </NavLink>
+          </Link>
+        </Hidden>
 
         <div className={classes.navLinksContainer}>
           {navLinks.map(link => {
             const { name, path } = link;
 
             return (
-              <NavLink to={path} className={classes.navLink} key={name}>
-                <Typography className={classes.navLinkText}>{name}</Typography>
-              </NavLink>
+              <Link
+                component={NavLink}
+                to={path}
+                variant="h5"
+                color="textPrimary"
+                className={classes.navLink}
+                key={name}
+              >
+                {name}
+              </Link>
             );
           })}
           <IconButton onClick={toggleTheme} color="secondary">

@@ -6,11 +6,23 @@ export const lightTheme = {
     primary: {
       main: '#fefefe',
     },
-    secondary: blueGrey,
-
-    text: {
-      primary: '#212121',
+    // secondary: blueGrey,
+    // secondary: {
+    //   main: '#455a64',
+    // },
+    secondary: {
+      main: '#37474f',
     },
+
+    // text: {
+    //   primary: '#212121',
+    // },
+    text: {
+      primary: '#263238',
+    },
+    // text: {
+    //   primary: '#37474f',
+    // },
 
     background: {
       paper: '#fefefe',
@@ -35,9 +47,15 @@ export const darkTheme = {
     },
     secondary: blueGrey,
 
+    // text: {
+    //   primary: '#fefefe',
+    // },
     text: {
-      primary: '#fefefe',
+      primary: '#90a4ae',
     },
+    // text: {
+    //   primary: '#cfd8dc',
+    // },
 
     background: {
       paper: '#212121',
