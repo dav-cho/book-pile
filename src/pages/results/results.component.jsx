@@ -7,12 +7,16 @@ import { ResultsHeader } from '../../components/results-header/results-header.co
 import { ResultsList } from '../../components/results-list/results-list.component';
 import { ProgressIndicator } from '../../components/progress-indicator/progress-indicator.component';
 
+import { useStyles } from './results.styles';
+
 const Results = ({ match }) => {
   const [searchResults, setSearchResults] = useState({
     data: [],
     loading: false,
   });
   const { searchVal } = match.params;
+
+  const { resultsContainer } = useStyles();
 
   useEffect(() => {
     if (searchVal) {
@@ -29,15 +33,12 @@ const Results = ({ match }) => {
       <Grid item xs={12}>
         <ResultsHeader />
       </Grid>
-      <Grid item container xs={12}>
+      <Grid item container xs={12} className={resultsContainer}>
         {!searchResults.loading ? (
-          <div className="results-container">
-            <ResultsList
-              results={searchResults.data}
-              // results={searchResults.data}
-              className="results-container"
-            />
-          </div>
+          <ResultsList
+            results={searchResults.data}
+            className="results-container"
+          />
         ) : (
           <ProgressIndicator />
         )}

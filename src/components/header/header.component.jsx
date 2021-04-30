@@ -1,4 +1,3 @@
-// import { useState, createRef } from 'react';
 import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
@@ -59,12 +58,14 @@ export const Header = () => {
   };
 
   return (
-    <AppBar color="secondary" elevation={0} className={classes.appBar}>
-      <Toolbar className={classes.navBar}>
-        <div className={classes.navLeftContainer}>
-          <Button onClick={toggleDrawer} className={classes.menuButton}>
-            <FiberManualRecordIcon />
-            <Typography variant="h5">menu</Typography>
+    <AppBar className={classes.appBar} elevation={0}>
+      <Toolbar className={classes.toolBar}>
+        <div className={classes.leftContainer}>
+          <Button className={classes.menuButton} onClick={toggleDrawer}>
+            <FiberManualRecordIcon className={classes.menuIcon} />
+            <Typography className={classes.menuText} variant="h5">
+              menu
+            </Typography>
           </Button>
           <div onClick={toggleDrawer}>
             <Drawer
@@ -78,14 +79,10 @@ export const Header = () => {
 
         <Hidden smDown>
           {currentPath !== '/' && (
-            <Link
-              component={NavLink}
-              to="/"
-              variant="h2"
-              color="textSecondary"
-              underline="none"
-            >
-              book.pile
+            <Link className={classes.titleLink} component={NavLink} to="/">
+              <Typography className={classes.title} variant="h2">
+                book.pile
+              </Typography>
             </Link>
           )}
         </Hidden>
@@ -96,18 +93,17 @@ export const Header = () => {
 
             return (
               <Link
+                className={classes.navLink}
                 component={NavLink}
                 to={path}
-                variant="h5"
-                color="textPrimary"
-                className={classes.navLink}
                 key={name}
+                variant="h5"
               >
                 {name}
               </Link>
             );
           })}
-          <IconButton onClick={toggleTheme} color="primary">
+          <IconButton className={classes.themeButton} onClick={toggleTheme}>
             {theme ? <Brightness4Icon /> : <BrightnessHighIcon />}
           </IconButton>
         </div>

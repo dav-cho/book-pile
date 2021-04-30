@@ -1,15 +1,14 @@
 import { Container, Typography } from '@material-ui/core';
-// import Typography from '@material-ui/core/Typography';
 
 import { Search } from '../../components/search/search.component';
 import { useStyles } from './home.styles';
 
 const Home = () => {
-  const { homeContainer } = useStyles();
+  const { homeContainer, title } = useStyles();
 
   return (
     <Container className={homeContainer}>
-      <Typography variant="h1" color="textSecondary">
+      <Typography variant="h1" color="textSecondary" className={title}>
         book.pile
       </Typography>
       <Search isMainPage />

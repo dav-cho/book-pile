@@ -5,17 +5,17 @@ export const StyledSearchInput = withStyles({
     // '& .MuiInput-underline:after': {
     //   borderBottomColor: 'green',
     // },
-    // '& .MuiOutlinedInput-root': {
-    //   '& fieldset': {
-    //     borderColor: 'red',
-    //   },
-    //   '&:hover fieldset': {
-    //     borderColor: 'yellow',
-    //   },
-    //   '&.Mui-focused fieldset': {
-    //     borderColor: 'green',
-    //   },
-    // },
+    '& .MuiOutlinedInput-root': {
+      '& fieldset': {
+        borderColor: 'red',
+      },
+      '&:hover fieldset': {
+        borderColor: 'yellow',
+      },
+      '&.Mui-focused fieldset': {
+        borderColor: 'green',
+      },
+    },
   },
 })(TextField);
 

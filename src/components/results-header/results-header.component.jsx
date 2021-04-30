@@ -1,26 +1,36 @@
 import { useParams } from 'react-router-dom';
-// import { Box, Typography } from '@material-ui/core';
-import { Typography, Button } from '@material-ui/core';
+import { Typography, Button, Divider } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
-// import './results-header.styles.scss';
 import { useStyles } from './results-header.styles';
 
 export const ResultsHeader = () => {
   const { searchVal } = useParams();
-  const { container, title, filterContainer, filter } = useStyles();
+
+  const {
+    container,
+    titleContainer,
+    titleText,
+    divider,
+    filterContainer,
+    filterText,
+    filterIcon,
+  } = useStyles();
 
   return (
     <div className={container}>
-      <div className={title}>
-        <Typography variant="h2">results for {searchVal}</Typography>
+      <div className={titleContainer}>
+        <Typography className={titleText} variant="h2">
+          results for {searchVal}
+        </Typography>
       </div>
+      <Divider className={divider} variant="middle" />
       <div className={filterContainer}>
         <Button>
-          <Typography variant="h3" className={filter}>
+          <Typography className={filterText} variant="h3">
             filter
           </Typography>
-          <AddIcon fontSize="large" />
+          <AddIcon className={filterIcon} />
         </Button>
       </div>
     </div>

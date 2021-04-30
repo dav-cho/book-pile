@@ -1,26 +1,48 @@
 import { makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles(() => ({
+export const useStyles = makeStyles(theme => ({
   appBar: {
-    position: 'static',
-    // position: 'relative',
-    zIndex: 10,
+    //   zIndex: 10,
+    position: 'relative',
+    backgroundColor: theme.palette.secondary.main,
   },
 
-  navBar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '0 1rem',
+  toolBar: {
+    margin: '0 1rem',
+    padding: 0,
   },
 
-  navLeftContainer: {
+  leftContainer: {
     flex: 1,
     display: 'flex',
-    alignItems: 'center',
   },
 
   menuButton: {
-    marginRight: '1.5rem',
+    marginRight: '1rem',
+    padding: 0,
+  },
+
+  menuIcon: {
+    fontSize: '1.75rem',
+    color: theme.palette.text.secondary,
+  },
+
+  menuText: {
+    marginLeft: '0.5rem',
+    marginBottom: '0.25rem',
+  },
+
+  titleLink: {
+    color: theme.palette.text.primary,
+    '&:hover': {
+      textDecoration: 'none',
+    },
+  },
+
+  title: {
+    margin: '0.5rem',
+    fontSize: '3.25rem',
+    fontWeight: 300,
   },
 
   navLinksContainer: {
@@ -32,9 +54,10 @@ export const useStyles = makeStyles(() => ({
 
   navLink: {
     margin: '0 1rem',
+    color: theme.palette.text.primary,
   },
 
   themeButton: {
-    //
+    color: theme.palette.text.secondary,
   },
 }));

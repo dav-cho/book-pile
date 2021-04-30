@@ -4,6 +4,10 @@ export const lightTheme = {
   palette: {
     type: 'light',
     primary: blueGrey,
+    // primary: {
+    //   light: blueGrey[300],
+    //   main: blueGrey[700],
+    // },
     secondary: {
       main: grey[50],
     },
@@ -11,7 +15,6 @@ export const lightTheme = {
     text: {
       primary: blueGrey[800],
       secondary: blueGrey[600],
-      // secondary: blueGrey[700],
     },
 
     background: {
