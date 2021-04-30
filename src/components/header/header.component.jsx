@@ -1,6 +1,6 @@
 // import { useState, createRef } from 'react';
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 
 import {
   AppBar,
@@ -49,6 +49,7 @@ const navLinks = [
 export const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { theme, toggleTheme } = UseThemesContext();
+  const currentPath = useLocation().pathname;
   const classes = useStyles();
 
   const toggleDrawer = e => {
@@ -58,15 +59,11 @@ export const Header = () => {
   };
 
   return (
-    <AppBar elevation={0} className={classes.appBar}>
+    <AppBar color="secondary" elevation={0} className={classes.appBar}>
       <Toolbar className={classes.navBar}>
         <div className={classes.navLeftContainer}>
-          <Button
-            onClick={toggleDrawer}
-            // color="secondary"
-            className={classes.menuButton}
-          >
-            <FiberManualRecordIcon color="secondary" />
+          <Button onClick={toggleDrawer} className={classes.menuButton}>
+            <FiberManualRecordIcon />
             <Typography variant="h5">menu</Typography>
           </Button>
           <div onClick={toggleDrawer}>
@@ -76,19 +73,21 @@ export const Header = () => {
               toggleDrawer={toggleDrawer}
             />
           </div>
-          <Search />
+          {currentPath !== '/' && <Search />}
         </div>
 
         <Hidden smDown>
-          <Link
-            component={NavLink}
-            to="/"
-            variant="h2"
-            color="textPrimary"
-            underline="none"
-          >
-            book.pile
-          </Link>
+          {currentPath !== '/' && (
+            <Link
+              component={NavLink}
+              to="/"
+              variant="h2"
+              color="textSecondary"
+              underline="none"
+            >
+              book.pile
+            </Link>
+          )}
         </Hidden>
 
         <div className={classes.navLinksContainer}>
@@ -108,7 +107,7 @@ export const Header = () => {
               </Link>
             );
           })}
-          <IconButton onClick={toggleTheme} color="secondary">
+          <IconButton onClick={toggleTheme} color="primary">
             {theme ? <Brightness4Icon /> : <BrightnessHighIcon />}
           </IconButton>
         </div>

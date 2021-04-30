@@ -6,7 +6,7 @@ import Home from './pages/home/home.component';
 import About from './pages/about/about.component';
 import Results from './pages/results/results.component';
 
-import './App.scss';
+import './App.css';
 
 function App() {
   return (

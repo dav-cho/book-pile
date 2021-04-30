@@ -21,7 +21,7 @@ export const Search = ({ isMainPage, label }) => {
       {/* <input
         placeholder="search for a book"
         value={input}
-        onChange={e => setInput(e.target.value)}
+        onChange={e => setInput(e.target.value)
         className={isMainPage ? 'main-page-input' : 'nav-input'}
       /> */}
       {/* <TextField
@@ -38,7 +38,7 @@ export const Search = ({ isMainPage, label }) => {
         variant="outlined"
         id="styled-search-input"
         margin="dense"
-        color="secondary"
+        // color="primary"
         value={input}
         onChange={e => setInput(e.target.value)}
       />

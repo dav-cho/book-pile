@@ -1,4 +1,4 @@
-import { withStyles, TextField } from '@material-ui/core';
+import { withStyles, TextField, InputBase } from '@material-ui/core';
 
 export const StyledSearchInput = withStyles({
   root: {
@@ -17,8 +17,8 @@ export const StyledSearchInput = withStyles({
     //   },
     // },
   },
-
-  input: {
-    borderRadius: '1rem',
-  },
 })(TextField);
+
+export const Input = withStyles({
+  //
+})(InputBase);

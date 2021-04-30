@@ -1,32 +1,22 @@
-import { blueGrey } from '@material-ui/core/colors';
+import { blueGrey, grey } from '@material-ui/core/colors';
 
 export const lightTheme = {
   palette: {
     type: 'light',
-    primary: {
-      main: '#fefefe',
-    },
-    // secondary: blueGrey,
-    // secondary: {
-    //   main: '#455a64',
-    // },
+    primary: blueGrey,
     secondary: {
-      main: '#37474f',
+      main: grey[50],
     },
 
-    // text: {
-    //   primary: '#212121',
-    // },
     text: {
-      primary: '#263238',
+      primary: blueGrey[800],
+      secondary: blueGrey[600],
+      // secondary: blueGrey[700],
     },
-    // text: {
-    //   primary: '#37474f',
-    // },
 
     background: {
-      paper: '#fefefe',
-      default: '#fefefe',
+      paper: grey[50],
+      default: grey[50],
     },
   },
 
@@ -42,24 +32,19 @@ export const lightTheme = {
 export const darkTheme = {
   palette: {
     type: 'dark',
-    primary: {
-      main: '#212121',
+    primary: blueGrey,
+    secondary: {
+      main: grey[900],
     },
-    secondary: blueGrey,
 
-    // text: {
-    //   primary: '#fefefe',
-    // },
     text: {
-      primary: '#90a4ae',
+      primary: blueGrey[200],
+      secondary: blueGrey[300],
     },
-    // text: {
-    //   primary: '#cfd8dc',
-    // },
 
     background: {
-      paper: '#212121',
-      default: '#212121',
+      paper: grey[900],
+      default: grey[900],
     },
   },
 

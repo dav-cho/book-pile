@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 proposal/book-pile.fig
+src/assets/harry-potter-response.json
+src/assets/master-and-margarita-response.json
+src/assets/pachinko-response.json

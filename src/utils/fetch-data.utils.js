@@ -8,7 +8,8 @@ export const fetchGoogle = async searchTerm => {
     const res = await axios.get(
       `${GOOGLE_BASE_URL}${searchTerm}&key=${GOOGLE_API_KEY}`
     );
-    const data = await res.data.items.slice(0, 10);
+    const data = await res.data.items.slice(0, 12);
+    // console.log('~ data', data);
 
     return data;
   } catch (err) {
