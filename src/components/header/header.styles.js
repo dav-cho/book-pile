@@ -2,8 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(() => ({
   appBar: {
-    position: 'static',
-    // position: 'sticky',
+    position: 'relative',
   },
 
   navBar: {
@@ -12,7 +11,7 @@ export const useStyles = makeStyles(() => ({
     padding: '0 1rem',
   },
 
-  navLeft: {
+  navLeftContainer: {
     flex: 1,
     display: 'flex',
     alignItems: 'center',

@@ -1,3 +1,5 @@
+// import { useState, createRef } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import {
@@ -6,39 +8,72 @@ import {
   Typography,
   Button,
   IconButton,
-  // Drawer,
 } from '@material-ui/core';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
 
 import { useStyles } from './header.styles';
-import { UseThemeContext } from '../../contexts/theme.context.jsx';
+import { UseThemesContext } from '../../contexts/themes.context';
+import { Drawer } from '../drawer/drawer.component';
 import { Search } from '../search/search.component';
 
+const navDrawerItems = [
+  {
+    name: 'home',
+  },
+  {
+    name: 'about',
+  },
+  {
+    name: 'options',
+  },
+  {
+    name: 'help',
+  },
+];
+
+const navLinks = [
+  {
+    name: 'home',
+    path: '/',
+  },
+  {
+    name: 'about',
+    path: '/about',
+  },
+];
+
 export const Header = () => {
-  const { theme, toggleTheme } = UseThemeContext();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { theme, toggleTheme } = UseThemesContext();
   const classes = useStyles();
 
-  const navLinks = [
-    {
-      name: 'home',
-      path: '/',
-    },
-    {
-      name: 'about',
-      path: '/about',
-    },
-  ];
+  const toggleDrawer = e => {
+    if (e.type === 'keydown' && (e.key === 'Tab' || e.key === 'Shift')) {
+      return;
+    } else setDrawerOpen(prevDrawerState => !prevDrawerState);
+  };
 
   return (
     <AppBar elevation={0} className={classes.appBar}>
       <Toolbar className={classes.navBar}>
-        <div className={classes.navLeft}>
-          <Button color="secondary" className={classes.menuButton}>
+        <div className={classes.navLeftContainer}>
+          <Button
+            onClick={toggleDrawer}
+            color="secondary"
+            className={classes.menuButton}
+          >
             <FiberManualRecordIcon />
             <Typography variant="h5">menu</Typography>
           </Button>
+          <div onClick={toggleDrawer}>
+            <Drawer
+              items={navDrawerItems}
+              openState={drawerOpen}
+              toggleDrawer={toggleDrawer}
+            />
+          </div>
           <Search />
         </div>
 

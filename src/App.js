@@ -1,6 +1,6 @@
 import { Route } from 'react-router-dom';
 
-import { ThemeContextProvider } from './contexts/theme.context';
+import { ThemesContextProvider } from './contexts/themes.context';
 import { Header } from './components/header/header.component';
 import Home from './pages/home/home.component';
 import About from './pages/about/about.component';
@@ -10,7 +10,7 @@ import './App.scss';
 
 function App() {
   return (
-    <ThemeContextProvider>
+    <ThemesContextProvider>
       <div className="App">
         <Header />
         <div className="content">
@@ -19,7 +19,7 @@ function App() {
           <Route path="/search/:searchVal" component={Results} />
         </div>
       </div>
-    </ThemeContextProvider>
+    </ThemesContextProvider>
   );
 }
 

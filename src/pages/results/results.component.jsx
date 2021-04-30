@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
-import { Grid } from '@material-ui/core';
+import { Grid, CircularProgress } from '@material-ui/core';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 
 import { fetchGoogle } from '../../utils/fetch-data.utils';
 import { ResultsHeader } from '../../components/results-header/results-header.component';
 import { ResultsList } from '../../components/results-list/results-list.component';
 
-const Results = () => {
+const Results = ({ match }) => {
   const [searchResults, setSearchResults] = useState();
-  const { searchVal } = useParams();
+  const { searchVal } = match.params;
 
   useEffect(() => {
     if (searchVal) {
@@ -33,7 +33,8 @@ const Results = () => {
               />
             </div>
           ) : (
-            <h3>no results found...</h3>
+            // <h3>no results found...</h3>
+            <CircularProgress />
           )}
         </Grid>
       </Grid>

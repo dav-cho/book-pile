@@ -1,20 +1,16 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-// import { useSearchContext } from '../../contexts/search.context';
-
 import './search.styles.scss';
 
 export const Search = ({ isMainPage, label }) => {
   const [input, setInput] = useState('');
-  // const { searchVal, setSearchVal, setSearchResults } = useSearchContext();
   const searchHistory = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
 
     searchHistory.push(`/search/${input}`);
-    // setSearchVal(input);
     setInput('');
   };
 

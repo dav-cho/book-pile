@@ -2,7 +2,6 @@ import axios from 'axios';
 
 const GOOGLE_BASE_URL = 'https://www.googleapis.com/books/v1/volumes/?q=';
 const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
-// const OPENLIBRARY_BASE_URL = 'https://openlibrary.org/search.json?q=';
 
 export const fetchGoogle = async searchTerm => {
   try {
@@ -16,6 +15,8 @@ export const fetchGoogle = async searchTerm => {
     console.log('~ ERROR', err);
   }
 };
+
+// const OPENLIBRARY_BASE_URL = 'https://openlibrary.org/search.json?q=';
 
 // const fetchOpenLibrary = async searchVal => {
 //   try {
