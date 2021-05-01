@@ -24,7 +24,7 @@ export const ResultsHeader = () => {
           results for {searchVal}
         </Typography>
       </div>
-      <Divider className={divider} variant="middle" />
+      <Divider className={divider} />
       <div className={filterContainer}>
         <Button>
           <Typography className={filterText} variant="h3">

@@ -2,13 +2,13 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(theme => ({
   appBar: {
-    //   zIndex: 10,
     position: 'relative',
+    padding: '0.5rem 0',
     backgroundColor: theme.palette.secondary.main,
   },
 
   toolBar: {
-    margin: '0 1rem',
+    height: '4rem',
     padding: 0,
   },
 
@@ -18,13 +18,13 @@ export const useStyles = makeStyles(theme => ({
   },
 
   menuButton: {
-    marginRight: '1rem',
-    padding: 0,
+    marginRight: '0.5rem',
+    padding: '0 1rem',
   },
 
   menuIcon: {
     fontSize: '1.75rem',
-    color: theme.palette.text.secondary,
+    color: theme.palette.divider,
   },
 
   menuText: {
@@ -33,9 +33,18 @@ export const useStyles = makeStyles(theme => ({
   },
 
   titleLink: {
+    marginBottom: '0.1rem',
     color: theme.palette.text.primary,
+
     '&:hover': {
       textDecoration: 'none',
+    },
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'none',
+    },
+    [theme.breakpoints.down('xs')]: {
+      display: 'inline-block',
     },
   },
 
@@ -50,14 +59,20 @@ export const useStyles = makeStyles(theme => ({
     display: 'flex',
     justifyContent: 'flex-end',
     alignItems: 'center',
+
+    [theme.breakpoints.down('xs')]: {
+      display: 'none',
+    },
   },
 
   navLink: {
     margin: '0 1rem',
+    paddingBottom: '0.25rem',
     color: theme.palette.text.primary,
   },
 
   themeButton: {
-    color: theme.palette.text.secondary,
+    color: theme.palette.divider,
+    padding: '0 1rem',
   },
 }));

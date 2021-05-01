@@ -4,12 +4,12 @@ export const useStyles = makeStyles(theme => ({
   container: {
     textAlign: 'left',
     margin: '0 1.5rem',
+    marginTop: '1rem',
   },
 
   titleContainer: {
-    padding: '2.5rem 0.5rem 2rem 0.5rem',
-    // borderBottom: '0.2rem solid',
-    // borderColor: theme.palette.text.secondary,
+    padding: '0.5rem',
+    paddingBottom: '2rem',
   },
 
   titleText: {

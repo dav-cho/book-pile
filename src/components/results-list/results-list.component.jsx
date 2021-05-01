@@ -8,10 +8,11 @@ export const ResultsList = ({ results }) => {
 
   return results.map(result => (
     <Grid
-      className={gridStyles}
       item
-      xs={6}
-      sm={4}
+      className={gridStyles}
+      xs={12}
+      sm={6}
+      md={4}
       lg={3}
       xl={2}
       key={result.id}

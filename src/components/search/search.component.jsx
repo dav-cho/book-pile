@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
+// import SearchIcon from '@material-ui/icons/Search';
+
 import { Input } from '../../components/input/input.component';
 
 export const Search = ({ isMainPage, label }) => {

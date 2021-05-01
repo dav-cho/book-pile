@@ -1,6 +1,11 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useMemo } from 'react';
 
-import { CssBaseline, createMuiTheme, ThemeProvider } from '@material-ui/core';
+import {
+  CssBaseline,
+  createMuiTheme,
+  ThemeProvider,
+  useMediaQuery,
+} from '@material-ui/core';
 
 import { lightTheme, darkTheme } from './themes.styles';
 
@@ -14,6 +19,8 @@ export const UseThemesContext = () => useContext(ThemesContext);
 export const ThemesContextProvider = ({ children }) => {
   const [themeType, setThemeType] = useState(true);
   const activeTheme = createMuiTheme(themeType ? lightTheme : darkTheme);
+  // const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  // console.log('~ prefersDarkMode', prefersDarkMode);
 
   const toggleTheme = () => {
     setThemeType(prevThemeType => !prevThemeType);

@@ -13,26 +13,12 @@ import {
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
+// import HomeIcon from '@material-ui/icons/Home';
 
 import { useStyles } from './header.styles';
 import { UseThemesContext } from '../../contexts/themes.context';
-import { Drawer } from '../drawer/drawer.component';
+import { NavDrawer } from '../nav-drawer/nav-drawer.component';
 import { Search } from '../search/search.component';
-
-const navDrawerItems = [
-  {
-    name: 'home',
-  },
-  {
-    name: 'about',
-  },
-  {
-    name: 'options',
-  },
-  {
-    name: 'help',
-  },
-];
 
 const navLinks = [
   {
@@ -49,7 +35,6 @@ export const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const { theme, toggleTheme } = UseThemesContext();
   const currentPath = useLocation().pathname;
-  const classes = useStyles();
 
   const toggleDrawer = e => {
     if (e.type === 'keydown' && (e.key === 'Tab' || e.key === 'Shift')) {
@@ -57,27 +42,26 @@ export const Header = () => {
     } else setDrawerOpen(prevDrawerState => !prevDrawerState);
   };
 
-  return (
-    <AppBar className={classes.appBar} elevation={0}>
-      <Toolbar className={classes.toolBar}>
-        <div className={classes.leftContainer}>
-          <Button className={classes.menuButton} onClick={toggleDrawer}>
-            <FiberManualRecordIcon className={classes.menuIcon} />
-            <Typography className={classes.menuText} variant="h5">
-              menu
-            </Typography>
-          </Button>
-          <div onClick={toggleDrawer}>
-            <Drawer
-              items={navDrawerItems}
-              openState={drawerOpen}
-              toggleDrawer={toggleDrawer}
-            />
-          </div>
-          {currentPath !== '/' && <Search />}
-        </div>
+  const classes = useStyles();
 
-        <Hidden smDown>
+  return (
+    <>
+      <AppBar className={classes.appBar} elevation={0}>
+        <Toolbar className={classes.toolBar}>
+          <div className={classes.leftContainer}>
+            <Button className={classes.menuButton} onClick={toggleDrawer}>
+              <FiberManualRecordIcon className={classes.menuIcon} />
+              <Typography className={classes.menuText} variant="h5">
+                menu
+              </Typography>
+            </Button>
+            {currentPath !== '/' && (
+              <Hidden xsDown>
+                <Search />
+              </Hidden>
+            )}
+          </div>
+
           {currentPath !== '/' && (
             <Link className={classes.titleLink} component={NavLink} to="/">
               <Typography className={classes.title} variant="h2">
@@ -85,29 +69,30 @@ export const Header = () => {
               </Typography>
             </Link>
           )}
-        </Hidden>
 
-        <div className={classes.navLinksContainer}>
-          {navLinks.map(link => {
-            const { name, path } = link;
+          <div className={classes.navLinksContainer}>
+            {navLinks.map(link => {
+              const { name, path } = link;
 
-            return (
-              <Link
-                className={classes.navLink}
-                component={NavLink}
-                to={path}
-                key={name}
-                variant="h5"
-              >
-                {name}
-              </Link>
-            );
-          })}
-          <IconButton className={classes.themeButton} onClick={toggleTheme}>
-            {theme ? <Brightness4Icon /> : <BrightnessHighIcon />}
-          </IconButton>
-        </div>
-      </Toolbar>
-    </AppBar>
+              return (
+                <Link
+                  className={classes.navLink}
+                  component={NavLink}
+                  to={path}
+                  key={name}
+                  variant="h5"
+                >
+                  {name}
+                </Link>
+              );
+            })}
+            <IconButton className={classes.themeButton} onClick={toggleTheme}>
+              {theme ? <Brightness4Icon /> : <BrightnessHighIcon />}
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+      <NavDrawer openState={drawerOpen} />
+    </>
   );
 };
