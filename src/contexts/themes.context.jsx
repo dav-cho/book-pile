@@ -1,10 +1,11 @@
-import { createContext, useContext, useState, useMemo } from 'react';
+import { createContext, useContext, useState } from 'react';
+// import { createContext, useContext, useState, useMemo } from 'react';
 
 import {
   CssBaseline,
   createMuiTheme,
   ThemeProvider,
-  useMediaQuery,
+  // useMediaQuery,
 } from '@material-ui/core';
 
 import { lightTheme, darkTheme } from './themes.styles';

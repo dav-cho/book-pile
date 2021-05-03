@@ -20,17 +20,4 @@ export const useStyles = makeStyles(theme => ({
     color: theme.palette.text.secondary,
     fontWeight: '400',
   },
-
-  filterContainer: {
-    padding: '0.5rem',
-    marginBottom: '0.75rem',
-  },
-
-  filterText: {
-    fontWeight: 300,
-  },
-
-  filterIcon: {
-    fontSize: '2rem',
-  },
 }));

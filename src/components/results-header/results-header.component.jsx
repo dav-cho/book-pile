@@ -1,21 +1,14 @@
 import { useParams } from 'react-router-dom';
-import { Typography, Button, Divider } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Typography, Divider } from '@material-ui/core';
+
+import { Filter } from '../filter/filter.component';
 
 import { useStyles } from './results-header.styles';
 
 export const ResultsHeader = () => {
   const { searchVal } = useParams();
 
-  const {
-    container,
-    titleContainer,
-    titleText,
-    divider,
-    filterContainer,
-    filterText,
-    filterIcon,
-  } = useStyles();
+  const { container, titleContainer, titleText, divider } = useStyles();
 
   return (
     <div className={container}>
@@ -25,14 +18,7 @@ export const ResultsHeader = () => {
         </Typography>
       </div>
       <Divider className={divider} />
-      <div className={filterContainer}>
-        <Button>
-          <Typography className={filterText} variant="h3">
-            filter
-          </Typography>
-          <AddIcon className={filterIcon} />
-        </Button>
-      </div>
+      <Filter />
     </div>
   );
 };

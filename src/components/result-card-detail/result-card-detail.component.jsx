@@ -4,11 +4,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import { useStyles } from './result-card-detail.styles';
 
 export const ResultCardDetails = ({
-  publishedDate,
-  pageCount,
-  description,
   anchorElement,
   handleClose,
+  ...result
 }) => {
   const { detailsContainer, detailsTop, closeButton } = useStyles();
 
@@ -19,15 +17,15 @@ export const ResultCardDetails = ({
       onClose={handleClose}
     >
       <Container className={detailsContainer} onClick={handleClose}>
-        <div className={detailsTop}>
-          <Typography>Published: {publishedDate}</Typography>
+        <div container className={detailsTop}>
+          <Typography>Published: {result.publishedDate}</Typography>
           <IconButton className={closeButton}>
             <CloseIcon />
           </IconButton>
         </div>
-        <Typography paragraph>Page Count: {pageCount}</Typography>
+        <Typography paragraph>Page Count: {result.pageCount}</Typography>
         <Typography variant="subtitle1">Description:</Typography>
-        <Typography paragraph>{description}</Typography>
+        <Typography paragraph>{result.description}</Typography>
       </Container>
     </Menu>
   );

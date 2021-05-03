@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core';
 export const useStyles = makeStyles(theme => ({
   container: {
     display: 'flex',
-    // justifyContent: 'center',
     marginTop: '0.75rem',
     paddingLeft: '1rem',
     borderTop: '0.5rem solid',

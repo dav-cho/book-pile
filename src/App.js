@@ -16,7 +16,7 @@ function App() {
       <div className="content">
         <Route exact path="/" component={Home} />
         <Route path="/about" component={About} />
-        <Route path="/search/:searchVal" component={Results} />
+        <Route path="/search/:query" component={Results} />
       </div>
     </div>
   );

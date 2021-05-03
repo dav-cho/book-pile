@@ -13,7 +13,6 @@ import {
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
-// import HomeIcon from '@material-ui/icons/Home';
 
 import { useStyles } from './header.styles';
 import { UseThemesContext } from '../../contexts/themes.context';
@@ -37,9 +36,7 @@ export const Header = () => {
   const currentPath = useLocation().pathname;
 
   const toggleDrawer = e => {
-    if (e.type === 'keydown' && (e.key === 'Tab' || e.key === 'Shift')) {
-      return;
-    } else setDrawerOpen(prevDrawerState => !prevDrawerState);
+    setDrawerOpen(prevDrawerState => !prevDrawerState);
   };
 
   const classes = useStyles();
@@ -57,7 +54,7 @@ export const Header = () => {
             </Button>
             {currentPath !== '/' && (
               <Hidden xsDown>
-                <Search />
+                <Search isHomePage={false} />
               </Hidden>
             )}
           </div>

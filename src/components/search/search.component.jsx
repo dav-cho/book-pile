@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
-// import SearchIcon from '@material-ui/icons/Search';
-
 import { Input } from '../../components/input/input.component';
 
-export const Search = ({ isMainPage, label }) => {
+export const Search = ({ isHomePage }) => {
   const [input, setInput] = useState('');
-  const searchHistory = useHistory();
+  const { push } = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
 
-    searchHistory.push(`/search/${input}`);
+    push(`/search/${input}`);
     setInput('');
   };
 
@@ -22,6 +20,7 @@ export const Search = ({ isMainPage, label }) => {
         label="search..."
         value={input}
         handleChange={e => setInput(e.target.value)}
+        isHomePage={isHomePage}
       />
     </form>
   );

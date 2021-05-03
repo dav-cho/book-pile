@@ -11,7 +11,7 @@ const Home = () => {
       <Typography variant="h1" color="textSecondary" className={title}>
         book.pile
       </Typography>
-      <Search isMainPage />
+      <Search isHomePage={true} />
     </Container>
   );
 };
