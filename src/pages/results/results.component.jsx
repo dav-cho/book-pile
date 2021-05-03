@@ -39,7 +39,6 @@ const Results = ({ match }) => {
         ) : (
           <ResultsList
             results={searchResults.data}
-            className="results-container"
           />
         )}
       </Grid>
