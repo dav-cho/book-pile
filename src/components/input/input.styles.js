@@ -53,5 +53,19 @@ export const useStyles = makeStyles(theme => ({
         borderWidth: '0.25rem',
       },
     },
+
+    [theme.breakpoints.down('xs')]: {
+      '& .MuiFormLabel-root': {
+        fontSize: '1.5rem',
+        padding: '0 0.5rem',
+        paddingBottom: '0.5rem',
+      },
+
+      '& .MuiOutlinedInput-root': {
+        fontSize: '1.5rem',
+        padding: '0 0.5rem',
+        width: '23rem',
+      },
+    },
   },
 }));
