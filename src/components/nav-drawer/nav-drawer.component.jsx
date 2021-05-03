@@ -1,4 +1,12 @@
-import { Collapse, Container, Button, Typography } from '@material-ui/core';
+import { Link } from 'react-router-dom';
+
+import {
+  Collapse,
+  Container,
+  Link as MuiLink,
+  Button,
+  Typography,
+} from '@material-ui/core';
 
 import { useStyles } from './nav-drawer.styles';
 
@@ -22,7 +30,7 @@ const drawerItems = [
 ];
 
 export const NavDrawer = ({ openState }) => {
-  const { container, menuOption } = useStyles();
+  const { container, muiLink, menuOption } = useStyles();
 
   return (
     <Collapse in={openState}>
@@ -31,11 +39,19 @@ export const NavDrawer = ({ openState }) => {
           const { name, path } = item;
 
           return (
-            <Button key={path}>
-              <Typography className={menuOption} variant="h6">
-                {name}
-              </Typography>
-            </Button>
+            <MuiLink
+              className={muiLink}
+              component={Link}
+              to={path}
+              underline="none"
+              key={name}
+            >
+              <Button>
+                <Typography className={menuOption} variant="h6">
+                  {name}
+                </Typography>
+              </Button>
+            </MuiLink>
           );
         })}
       </Container>

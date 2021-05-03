@@ -32,8 +32,8 @@ const navLinks = [
 
 export const Header = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const { theme, toggleTheme } = UseThemesContext();
   const currentPath = useLocation().pathname;
+  const { theme, toggleTheme } = UseThemesContext();
 
   const toggleDrawer = e => {
     setDrawerOpen(prevDrawerState => !prevDrawerState);
@@ -60,7 +60,12 @@ export const Header = () => {
           </div>
 
           {currentPath !== '/' && (
-            <Link className={classes.titleLink} component={NavLink} to="/">
+            <Link
+              className={classes.titleLink}
+              component={NavLink}
+              to="/"
+              underline="none"
+            >
               <Typography className={classes.title} variant="h2">
                 book.pile
               </Typography>
@@ -78,6 +83,7 @@ export const Header = () => {
                   to={path}
                   key={name}
                   variant="h5"
+                  underline="none"
                 >
                   {name}
                 </Link>

@@ -36,10 +36,6 @@ export const useStyles = makeStyles(theme => ({
     marginBottom: '0.1rem',
     color: theme.palette.text.primary,
 
-    '&:hover': {
-      textDecoration: 'none',
-    },
-
     [theme.breakpoints.down('sm')]: {
       display: 'none',
     },
