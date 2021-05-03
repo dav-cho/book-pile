@@ -11,16 +11,17 @@ book.pile is a simple book search app where you can quickly find books by title,
 ## Technologies Used
 - HTML, CSS, Javascript
 - React.js
+- Create React App
 - React Router DOM
 - Material-UI
 - Axios
 - Surge.sh
 ## Installation Instructions
-### Web:
-- Simply go to https://book-pile.surg.sh
+#### Web:
+Simply go to https://book-pile.surg.sh
 
-### Local:
-- Clone this repo then run npm install or yarn
+#### Local:
+Clone this repo then run npm install or yarn, then npm start or yarn start 
 ## Wireframes
 ![main landing wireframe](./proposal/wire-frame-landing-page.png)
 ![results page wireframe](./proposal/wire-frame-results-page.png)
@@ -35,6 +36,6 @@ book.pile is a simple book search app where you can quickly find books by title,
 
 ## Contribution Guidelines
 In order to contribute or support, you can:
-- fork and clone this repo and submit pull requests
+- Fork and clone this repo and submit pull requests  
 or
 - Submit a new issue
