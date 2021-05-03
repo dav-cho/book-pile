@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
-import './index.scss';
+
+import { ThemesContextProvider } from './contexts/themes.context';
 import App from './App';
 
+import './index.css';
+
 ReactDOM.render(
-  <React.StrictMode>
+  <ThemesContextProvider>
     <Router>
       <App />
     </Router>
-  </React.StrictMode>,
+  </ThemesContextProvider>,
   document.getElementById('root')
 );

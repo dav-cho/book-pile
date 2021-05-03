@@ -1,39 +1,95 @@
-import { NavLink } from 'react-router-dom';
-import './header.styles.scss';
+import { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 
-import { Menu } from '../menu/menu.component';
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+  Link,
+  Hidden,
+} from '@material-ui/core';
+import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
+import Brightness4Icon from '@material-ui/icons/Brightness4';
+import BrightnessHighIcon from '@material-ui/icons/BrightnessHigh';
+
+import { useStyles } from './header.styles';
+import { UseThemesContext } from '../../contexts/themes.context';
+import { NavDrawer } from '../nav-drawer/nav-drawer.component';
 import { Search } from '../search/search.component';
-// import { ReactComponent as Logo } from '../../assets/book-pile.svg';
+
+const navLinks = [
+  {
+    name: 'home',
+    path: '/',
+  },
+  {
+    name: 'about',
+    path: '/about',
+  },
+];
 
 export const Header = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const { theme, toggleTheme } = UseThemesContext();
+  const currentPath = useLocation().pathname;
+
+  const toggleDrawer = e => {
+    setDrawerOpen(prevDrawerState => !prevDrawerState);
+  };
+
+  const classes = useStyles();
+
   return (
-    <div className="header">
-      <div className="header-left">
-        <div className="menu-button-container">
-          <strong className="bullet">&bull;</strong>
-          {/* <span className="circle"></span> */}
-          <span className="menu-button">
-            <Menu />
-          </span>
-        </div>
-        <span className="search-container">
-          <Search />
-        </span>
-      </div>
+    <>
+      <AppBar className={classes.appBar} elevation={0}>
+        <Toolbar className={classes.toolBar}>
+          <div className={classes.leftContainer}>
+            <Button className={classes.menuButton} onClick={toggleDrawer}>
+              <FiberManualRecordIcon className={classes.menuIcon} />
+              <Typography className={classes.menuText} variant="h5">
+                menu
+              </Typography>
+            </Button>
+            {currentPath !== '/' && (
+              <Hidden xsDown>
+                <Search isHomePage={false} />
+              </Hidden>
+            )}
+          </div>
 
-      <NavLink to="/" className="logo-container">
-        {/* <Logo className="logo" /> */}
-        <div className="logo">book.pile</div>
-      </NavLink>
+          {currentPath !== '/' && (
+            <Link className={classes.titleLink} component={NavLink} to="/">
+              <Typography className={classes.title} variant="h2">
+                book.pile
+              </Typography>
+            </Link>
+          )}
 
-      <ul className="nav-links">
-        <NavLink to="/home">
-          <li>home</li>
-        </NavLink>
-        <NavLink to="/about">
-          <li>about</li>
-        </NavLink>
-      </ul>
-    </div>
+          <div className={classes.navLinksContainer}>
+            {navLinks.map(link => {
+              const { name, path } = link;
+
+              return (
+                <Link
+                  className={classes.navLink}
+                  component={NavLink}
+                  to={path}
+                  key={name}
+                  variant="h5"
+                >
+                  {name}
+                </Link>
+              );
+            })}
+            <IconButton className={classes.themeButton} onClick={toggleTheme}>
+              {theme ? <Brightness4Icon /> : <BrightnessHighIcon />}
+            </IconButton>
+          </div>
+        </Toolbar>
+      </AppBar>
+      <NavDrawer openState={drawerOpen} />
+    </>
   );
 };
